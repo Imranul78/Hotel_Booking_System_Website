@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminController;
 
+use App\Http\Controllers\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +36,11 @@ route::get('/room_update/{id}',[AdminController::class, 'room_update']);
 route::post('/edit_room/{id}',[AdminController::class, 'edit_room']);
 
 
+
+
+// HomeController
+
+route::get('/room_details/{id}',[HomeController::class, 'room_details']);
 
 
 
