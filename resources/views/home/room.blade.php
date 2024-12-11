@@ -20,7 +20,7 @@
                      <div class="bed_room">
                         <h3>{{$rooms->room_title}}</h3>
                         <h4>Room No: {{$rooms->room_no}}</h4>
-                        <h4>Price : {{$rooms->price}} BDT</h4>
+                        <h4> Price : {{$rooms->price}} BDT</h4>
                         <p class="text-justify">{!! Str::limit($rooms->description,170) !!}</p>
                         <a class="btn btn-primary mt-3" href="{{url('room_details',$rooms->id)}}">More Details</a>
                      </div>
