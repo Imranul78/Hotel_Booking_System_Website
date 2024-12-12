@@ -57,14 +57,13 @@
                         <h1 class="h2 fw-bold">Book Room</h1>
 
                        <div>
-                       @if(session()->has('message'))
+            @if (session('message'))
+                         <div class="alert @if(session('status') === 'success') alert-success @elseif(session('status') === 'warning') alert-warning @endif alert-dismissible fade show" role="alert">
+                             <strong>@if(session('status') === 'success') @elseif(session('status') === 'warning') @endif</strong> {{ session('message') }}
+                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                         </div>
+                         @endif
 
-                       <div class="alert alert-success">
-                        <button type="button" class="close" data-bs-dismiss="alert">x</button>
-                       {{session()->get('message')}}
-                       </div>
-                      
-                      @endif 
                        </div>  
 
                         <form action="{{url('add_booking',$room->id)}}" method="Post" id="bookingForm">
@@ -195,6 +194,11 @@
          });
 
       </script>
+
+
+
+
+
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
    </body>

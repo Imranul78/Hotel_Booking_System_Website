@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 
 use App\Models\Room;
 
+use App\Models\Booking_room;
+
 class AdminController extends Controller
 {
     
@@ -140,5 +142,49 @@ public function edit_room(Request $request, $id)
   return redirect()->back();
   
 }
+
+
+public function bookings(){
+
+  $data = Booking_room::all();
+  
+  return view('admin.booking',compact('data'));
+}
+
+
+
+public function delete_booking($id){
+
+  $data = Booking_room::find($id);
+
+  $data->delete();
+
+  return redirect()->back();
+
+}
+
+public function approve_book($id){
+
+  $booking = Booking_room::find($id);
+  
+  $booking->status='Approved';
+  $booking->save();
+  return redirect()->back();
+}
+
+
+public function reject_book($id){
+
+  $booking = Booking_room::find($id);
+  
+  $booking->status='Rejected';
+  $booking->save();
+  return redirect()->back();
+}
+
+
+
+
+
 
 }

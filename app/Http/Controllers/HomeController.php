@@ -31,19 +31,38 @@ public function add_booking(Request $request, $id){
 
       $data->phone = $request->phone;
 
-      $data->start_date = $request->startDate;
-
-      $data->end_date = $request->endDate;
-
       $data->paid_amount = $request->paid_amount;
 
-      $data->save();
 
-      return redirect()->back()->with('message','Room Booked Successfully');
+    
+      $startDate = $request->startDate;
+
+      $endDate = $request->endDate;
+
+      $isBooked = booking_room::where('room_id', $id)
+      ->where('start_date', '<', $endDate)
+      ->where('end_date', '>', $startDate)->exists();
+
+      if($isBooked) {
+        return redirect()->back()->with([
+            'message' => 'Sorry, this room is already booked for the selected dates, please try different dates.',
+            'status' => 'warning'
+        ]);
+    } else {
+        $data->start_date = $request->startDate;
+        $data->end_date = $request->endDate;
+        $data->save();
+        
+        return redirect()->back()->with([
+            'message' => 'Your booking has been successfully confirmed. Thank you for choosing our service! ',
+            'status' => 'success'
+        ]);
+    }
+    
 
 
 
-
+   
 }
 
 
@@ -53,3 +72,5 @@ public function add_booking(Request $request, $id){
 
 
 }
+
+
