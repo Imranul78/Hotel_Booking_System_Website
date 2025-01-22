@@ -41,7 +41,7 @@
                   <div class="row">
                      <div class="col-md-10 offset-md-1">
                         
-                     <p class="no-margin-bottom">&copy; 2024. Urban It Solutions. All Rights Reserved.</p>
+                     <p class="no-margin-bottom">&copy; 2025. The Grand Haven Resort. All Rights Reserved.</p>
 
                      </div>
                   </div>

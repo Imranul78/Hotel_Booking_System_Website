@@ -41,23 +41,26 @@ public function add_booking(Request $request, $id){
 
       $isBooked = booking_room::where('room_id', $id)
       ->where('start_date', '<', $endDate)
-      ->where('end_date', '>', $startDate)->exists();
-
-      if($isBooked) {
-        return redirect()->back()->with([
-            'message' => 'Sorry, this room is already booked for the selected dates, please try different dates.',
-            'status' => 'warning'
-        ]);
-    } else {
-        $data->start_date = $request->startDate;
-        $data->end_date = $request->endDate;
-        $data->save();
-        
-        return redirect()->back()->with([
-            'message' => 'Your booking has been successfully confirmed. Thank you for choosing our service! ',
-            'status' => 'success'
-        ]);
-    }
+      ->where('end_date', '>', $startDate)
+      ->where('status', '!=', 'rejected') // Exclude rejected bookings
+      ->exists();
+  
+  if ($isBooked) {
+      return redirect()->back()->with([
+          'message' => 'Sorry, this room is already booked for the selected dates, please try different dates.',
+          'status' => 'warning'
+      ]);
+  } else {
+      $data->start_date = $request->startDate;
+      $data->end_date = $request->endDate;
+      $data->save();
+      
+      return redirect()->back()->with([
+          'message' => 'Your booking has been successfully confirmed. Thank you for choosing our service!',
+          'status' => 'success'
+      ]);
+  }
+  
     
 
 

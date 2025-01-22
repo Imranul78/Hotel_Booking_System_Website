@@ -45,7 +45,7 @@
                            <p>Room No: {{$room->room_no}}</p>
                            <p>Free Wifi: {{$room->wifi}}</p>
                            <p>Room Type: {{$room->room_type}}</p>
-                           <h4 id="price" class="fw-bold fs-4">Price: <span id="roomPrice">{{$room->price}}</span> BDT</h4>
+                           <h4 id="price" class="fw-bold fs-4">Price Per Room/Night: <span id="roomPrice">{{$room->price}}</span> BDT</h4>
                            <p class="text-justify">{{$room->description}}</p>
                         </div>
                      </div>
@@ -94,12 +94,12 @@
                            </div>
 
                            <div class="mb-3">
-                              <label for="startDate" class="form-label">Start Date</label>
+                              <label for="startDate" class="form-label">Check in</label>
                               <input type="date" id="startDate" name="startDate" class="form-control rounded">
                            </div>
 
                            <div class="mb-3">
-                              <label for="endDate" class="form-label">End Date</label>
+                              <label for="endDate" class="form-label">Check out</label>
                               <input type="date" id="endDate" name="endDate" class="form-control rounded">
                            </div>
 
@@ -108,6 +108,12 @@
                            </div>
 
                            <p id="errorMessage" class="text-danger" style="display: none;">🚫 **End Date must be after Start Date!**</p>
+
+                           <div>
+
+                           <h5>How to Make Payment</h5>
+                           <p class="text-justify"> "To confirm the booking, you need to pay 50% of the total amount. Confirming your booking, we will contact you via phone or email to finalize your booking confirmation."</p>
+                           </div>
 
                            <div class="text-center">
                               <button type="submit" class="btn btn-success px-5 w-100 shadow-sm">Book Now</button>

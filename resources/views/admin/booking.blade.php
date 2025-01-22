@@ -74,14 +74,14 @@
               <span style="color: yelLow;">Waiting</span>
               @endif
 
-              </td>
-              <td> 
-                <a onclick="return confirm('Are you sure to delete?');" class="btn btn-danger mt-4"  href="{{url('delete_booking',$data->id)}}">Delete</a>
-              </td>
-
               <td> 
                 <a class="btn btn-success mb-2"  href="{{url('approve_book',$data->id)}}">Approved</a>
                 <a onclick="return confirm('Are you sure to Reject?');" class="btn btn-warning px-3"  href="{{url('reject_book',$data->id)}}"> Rejected </a>
+              </td>
+
+              </td>
+              <td> 
+                <a onclick="return confirm('Are you sure to delete?');" class="btn btn-danger mt-4"  href="{{url('delete_booking',$data->id)}}">Delete</a>
               </td>
 
             </tr>
@@ -92,12 +92,6 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
       
 
        <!-- footer start -->

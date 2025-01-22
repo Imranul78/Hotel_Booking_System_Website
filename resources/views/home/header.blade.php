@@ -7,6 +7,7 @@
                         <div class="center-desk">
                            <div class="logo">
                               <a href="{{url('/')}}"><img src="" alt="#" /></a>
+                               
                            </div>
                         </div>
                      </div>
