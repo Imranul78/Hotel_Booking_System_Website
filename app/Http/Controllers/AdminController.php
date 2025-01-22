@@ -13,6 +13,10 @@ use App\Models\Room;
 
 use App\Models\Booking_room;
 
+use App\Models\Gallary;
+
+
+
 class AdminController extends Controller
 {
     
@@ -180,6 +184,47 @@ public function reject_book($id){
   $booking->status='Rejected';
   $booking->save();
   return redirect()->back();
+}
+
+
+
+public function view_gallary(){
+
+  $gallary = Gallary::all();
+
+  return view('admin.gallary', compact('gallary'));
+}
+
+
+public function upload_gallary(request $request){
+
+  
+$data = new Gallary;
+
+$image = $request->image;
+
+  if($image)
+  {
+    $imagename=time().'.'.$image->getClientOriginalExtension();
+
+    $request->image->move('Gallary',$imagename);
+
+    $data->image=$imagename;
+
+    $data->save();
+
+    return redirect()->back();
+
+  }
+  
+}
+
+
+public function delete_gallary($id){
+  $data = Gallary::find($id);
+  $data->delete();
+  return redirect()->back();
+
 }
 
 

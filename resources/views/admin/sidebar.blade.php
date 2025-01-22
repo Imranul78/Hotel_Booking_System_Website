@@ -24,6 +24,10 @@
                  <li class="{{ Request::is('bookings') ? 'active' : '' }}">
                     <a href="{{ url('bookings') }}"> <i class="icon-windows"></i> Booking Request </a>
                 </li>
+
+                <li class="{{ Request::is('view_gallary') ? 'active' : '' }}">
+                    <a href="{{ url('view_gallary') }}"> <i class="icon-windows"></i> Gallary </a>
+                </li>
         </ul>
 
 </nav>
