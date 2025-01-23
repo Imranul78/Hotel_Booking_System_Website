@@ -16,13 +16,17 @@
                  <li class="{{ Request::is('create_room') || Request::is('view_room') ? 'active' : '' }}">
                    <a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"><i class="icon-windows"></i> Hotel Rooms</a>
                       <ul id="exampledropdownDropdown" class="collapse list-unstyled">
-                         <li><a href="{{ url('create_room') }}">Add Rooms</a></li>
-                         <li><a href="{{ url('view_room') }}">View Rooms</a></li>
+                         <li class="{{ Request::is('create_room') ? 'active' : '' }}"><a href="{{ url('create_room') }}">Add Rooms</a></li>
+                         <li class="{{ Request::is('view_room') ? 'active' : '' }}"><a href="{{ url('view_room') }}">View Rooms</a></li>
                       </ul>
                  </li>             
 
                 <li class="{{ Request::is('view_gallary') ? 'active' : '' }}">
                     <a href="{{ url('view_gallary') }}"> <i class="icon-windows"></i> Gallary </a>
+                </li>
+
+                <li class="{{ Request::is('all_messages') ? 'active' : '' }}">
+                    <a href="{{ url('all_messages') }}"> <i class="icon-windows"></i> Messages </a>
                 </li>
         </ul>
 

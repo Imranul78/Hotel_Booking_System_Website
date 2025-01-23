@@ -2,19 +2,6 @@
 <html>
   <head> 
    @include('admin.css')
-
-   <style>
-    /* Add styling for active class */
-ul.list-unstyled li.active > a {
-    background-color: #007bff;
-    color: #fff;
-}
-
-ul.list-unstyled li.active > a:hover {
-    background-color: #0056b3;
-}
-
-   </style>
   </head>
   <body>
 
