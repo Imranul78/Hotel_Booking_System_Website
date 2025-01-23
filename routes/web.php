@@ -35,6 +35,8 @@ route::get('/room_update/{id}',[AdminController::class, 'room_update']);
 
 route::post('/edit_room/{id}',[AdminController::class, 'edit_room']);
 
+Route::get('view-room', [AdminController::class, 'view_room'])->name('view_room');
+
 route::get('/bookings',[AdminController::class, 'bookings']);
 
 route::get('/delete_booking/{id}',[AdminController::class, 'delete_booking']);
@@ -51,11 +53,15 @@ route::get('/delete_gallary/{id}',[AdminController::class, 'delete_gallary']);
 
 
 
+
+
 // HomeController
 
 route::get('/room_details/{id}',[HomeController::class, 'room_details']);
 
 route::post('/add_booking/{id}',[HomeController::class, 'add_booking']);
+
+route::post('/contact',[HomeController::class, 'contact']);
 
 
 

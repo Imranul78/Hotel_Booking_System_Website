@@ -1,27 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head> 
-   @include('admin.css')
-  </head>
-  <body>
 
-    @include('admin.header')
-
-    
-    <div class="d-flex align-items-stretch">
-
-      <!-- Sidebar Navigation-->
-      @include('admin.sidebar')
-      <!-- Sidebar Navigation end-->
-    
-      
-      <div class="page-content">
-
-
-      <div class="container mt-5">
-  <div class="card shadow-lg border-0">
     <div class="card-header bg-info text-white text-center">
-      <h4 class="mb-0">Room Details</h4>
+      <h4 class="mb-0">Booking Details</h4>
     </div>
     <div class="card-body p-4">
       <div class="table-responsive">
@@ -90,18 +69,3 @@
         </table>
       </div>
     </div>
-  </div>
-</div>
-      
-
-       <!-- footer start -->
-        @include('admin.footer')
-        <!-- footer end -->
-      </div>
-    </div>
-    
-      <!-- JavaScript files-->
-   @include('admin.js')
-   
-  </body>
-</html>

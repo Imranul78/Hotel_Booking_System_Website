@@ -32,16 +32,22 @@ class AdminController extends Controller
           {
             $room = Room::all();
 
-            return view('home.index',compact('room'));
+           $gallary = Gallary::all();
+
+            return view('home.index',compact('room', 'gallary'));
           
           }
 
           else if($usertype == 'admin')
           {
-            return view('admin.index');
+            
+            $data = Booking_room::all();
+  
+            return view('admin.index',compact('data'));
           }
 
           else {
+
             return redirect()->back();
           }
 
@@ -55,7 +61,9 @@ public function home()
 
   $room = Room::all();
 
-  return view('home.index',compact('room'));
+  $gallary = Gallary::all();
+
+  return view('home.index',compact('room', 'gallary'));
 }
 
 public function create_room(){
@@ -88,6 +96,8 @@ public function add_room(Request $request)
 
   $data->save();
 
+  session()->flash('success', 'Room added successfully!');
+
   return redirect()->back();
   
 }
@@ -117,35 +127,30 @@ public function room_update($id){
 
 }
 
-public function edit_room(Request $request, $id)
+public function edit_room(Request $request, $id) 
 {
-  $data = Room::find($id);
+    $data = Room::find($id);
 
-  $data->room_no = $request->No;
-  $data->room_title = $request->title;
-  $data->description = $request->description;
-  $data->price = $request->price;
-  $data->wifi = $request->wifi;
-  $data->room_type = $request->type;
+    $data->room_no = $request->No;
+    $data->room_title = $request->title;
+    $data->description = $request->description;
+    $data->price = $request->price;
+    $data->wifi = $request->wifi;
+    $data->room_type = $request->type;
 
+    $image = $request->image;
+    if ($image) {
+        $imagename = time() . '.' . $image->getClientOriginalExtension();
+        $request->image->move('room', $imagename);
+        $data->image = $imagename;
+    }
 
-  $image=$request->image;
-  if($image)
-  {
-    $imagename=time().'.'.$image->getClientOriginalExtension();
+    $data->save();
 
-    $request->image->move('room',$imagename);
-
-    $data->image=$imagename;
-
-  }
-
-  
-  $data->save();
-
-  return redirect()->back();
-  
+    // Redirect to admin.view_room page
+    return redirect()->route('view_room');
 }
+
 
 
 public function bookings(){

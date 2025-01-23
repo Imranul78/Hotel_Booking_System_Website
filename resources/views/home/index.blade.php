@@ -45,5 +45,19 @@
        
       <!--  footer -->
      @include('home.footer')
+
+     <script>
+      $(window).on('scroll', function () {
+      sessionStorage.setItem('scrollTop', $(this).scrollTop());
+      });
+
+       $(document).ready(function () {
+     const scrollTop = sessionStorage.getItem('scrollTop');
+      if (scrollTop !== null) {
+      $(window).scrollTop(scrollTop);
+     }
+      });
+
+     </script>
    </body>
 </html>

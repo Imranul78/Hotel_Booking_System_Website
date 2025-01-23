@@ -17,9 +17,6 @@
       
       <div class="page-content">
 
-
-<div class="container mt-5">
-  <div class="card shadow-lg border-0">
     <div class="card-header bg-info text-white text-center">
       <h4 class="mb-0">Room Details</h4>
     </div>
@@ -65,8 +62,7 @@
         </table>
       </div>
     </div>
-  </div>
-</div>
+
 
 
        <!-- footer start -->

@@ -31,7 +31,7 @@ ul.list-unstyled li.active > a:hover {
       <div class="page-content">
 
       <!-- main body part start-->
-     @include("admin.mainbody")
+     @include("admin.booking")
 
     <!-- main body part end-->
 

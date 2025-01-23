@@ -33,33 +33,33 @@
         <!-- Room No -->
         <div class="mb-4">
           <label class="form-label fw-bold">Room No</label>
-          <input type="text" name="No" value="{{$data->room_no}}" class="form-control border " placeholder="Enter room number"/>
+          <input type="text" name="No" required value="{{$data->room_no}}" class="form-control border " placeholder="Enter room number"/>
         </div>
 
         <!-- Room Title -->
         <div class="mb-4">
           <label class="form-label fw-bold">Room Title</label>
           <input
-            type="text" name="title" value="{{$data->room_title}}" class="form-control border" placeholder="Enter room title"/>
+            type="text" name="title" required value="{{$data->room_title}}" class="form-control border" placeholder="Enter room title"/>
         </div>
 
         <!-- Description -->
         <div class="mb-4">
           <label class="form-label fw-bold">Description</label>
-          <textarea name="description" class="form-control border" rows="3" placeholder="Enter room description">{{$data->description}}</textarea>
+          <textarea name="description" required class="form-control border" rows="3" placeholder="Enter room description">{{$data->description}}</textarea>
         </div>
 
         <!-- Price -->
         <div class="mb-4">
           <label class="form-label fw-bold">Price</label>
-          <input type="number" name="price" value="{{$data->price}}" class="form-control border" placeholder="Enter price"
+          <input type="number" name="price" required value="{{$data->price}}" class="form-control border" placeholder="Enter price"
           />
         </div>
 
         <!-- Room Type -->
         <div class="mb-4">
           <label class="form-label fw-bold">Room Type</label>
-          <select name="type" class="form-select border">
+          <select name="type" required class="form-select border">
 
            <option selected value="{{$data->room_type}}">{{$data->room_type}}</option>
 
@@ -72,7 +72,7 @@
         <!-- Free Wifi -->
         <div class="mb-4">
           <label class="form-label fw-bold">Free Wifi</label>
-          <select name="wifi" class="form-select border">
+          <select name="wifi" required class="form-select border">
 
           <option selected value="{{$data->wifi}}">{{$data->wifi}}</option>
             <option value="yes">Yes</option>

@@ -71,7 +71,7 @@
                         @csrf
                            <div class="mb-3">
                               <label for="name" class="form-label">Name</label>
-                              <input type="text" id="name" name="name" class="form-control rounded" placeholder="Enter your name" 
+                              <input type="text" id="name" name="name" required class="form-control rounded" placeholder="Enter your name" 
                               @if (Auth::id())
                               value="{{Auth::user()->name}}"
                               @endif>
@@ -79,7 +79,7 @@
 
                            <div class="mb-3">
                               <label for="email" class="form-label">Email</label>
-                              <input type="email" id="email" name="email" class="form-control rounded" placeholder="Enter your email address"
+                              <input type="email" id="email" name="email" required class="form-control rounded" placeholder="Enter your email address"
                               @if (Auth::id())
                               value="{{Auth::user()->email}}"
                               @endif>
@@ -87,7 +87,7 @@
 
                            <div class="mb-3">
                               <label for="phone" class="form-label">Phone</label>
-                              <input type="number" id="phone" name="phone" class="form-control rounded" placeholder="Enter your phone number"
+                              <input type="number" id="phone" name="phone" required class="form-control rounded" placeholder="Enter your phone number"
                               @if (Auth::id())
                               value="{{Auth::user()->phone}}"
                               @endif>
@@ -95,12 +95,12 @@
 
                            <div class="mb-3">
                               <label for="startDate" class="form-label">Check in</label>
-                              <input type="date" id="startDate" name="startDate" class="form-control rounded">
+                              <input type="date" id="startDate" name="startDate" required class="form-control rounded">
                            </div>
 
                            <div class="mb-3">
                               <label for="endDate" class="form-label">Check out</label>
-                              <input type="date" id="endDate" name="endDate" class="form-control rounded">
+                              <input type="date" id="endDate" name="endDate" required class="form-control rounded">
                            </div>
 
                            <div class="mb-3">
