@@ -19,8 +19,9 @@
               <th>Price</th>
               <th>Pay Amount</th>
               <th>Status</th>
-              <th>Delete</th>
               <th>Status Update</th>
+              <th>Delete</th>
+              
               
             </tr>
           </thead>

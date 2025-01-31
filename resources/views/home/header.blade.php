@@ -6,7 +6,7 @@
                      <div class="full">
                         <div class="center-desk">
                            <div class="logo">
-                              <a href="{{url('/')}}"><img src="" alt="#" /></a>
+                              <a href="{{url('/')}}"><img src="{{asset('images/logo-.png')}}" alt="" class="img-fluid" style="max-width: 150px; height: 70px;"/></a>
                                
                            </div>
                         </div>
@@ -19,22 +19,22 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                            <ul class="navbar-nav mr-auto">
-                              <li class="nav-item active">
-                                 <a class="nav-link" href="{{url('/')}}">Home</a>
-                              </li>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="">About</a>
-                              </li>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="">Our room</a>
-                              </li>
-                              <li class="nav-item">
-                                 <a class="nav-link" href="">Gallery</a>
-                              </li>
-         
-                              <li class="nav-item">
-                                 <a class="nav-link" href="">Contact Us</a>
-                              </li>
+                           <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
+                          <a class="nav-link" href="{{ url('/') }}">Home</a>
+                             </li>
+                        <li class="nav-item {{ Request::is('our_rooms') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('our_rooms') }}">Our Room</a>
+                       </li>
+                       <li class="nav-item {{ Request::is('hotel_gallary') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ url('hotel_gallary') }}">Gallery</a>
+                         </li>
+                      <li class="nav-item {{ Request::is('h_blog') ? 'active' : '' }}">
+                       <a class="nav-link" href="{{ url('h_blog') }}">Blog</a>
+                       </li>
+                      <li class="nav-item {{ Request::is('contact_us') ? 'active' : '' }}">
+                      <a class="nav-link" href="{{ url('contact_us') }}">Contact Us</a>
+                     </li>
+
 
 
 

@@ -4,6 +4,7 @@
 
      @include('home.css')
 
+
    </head>
    <!-- body -->
    <body class="main-layout">
@@ -59,5 +60,6 @@
       });
 
      </script>
+
    </body>
 </html>

@@ -1,4 +1,4 @@
-<section class="banner_main d-flex align-items-center justify-content-center position-relative" style="height: 100vh;">
+<section class=" banner_main d-flex align-items-center justify-content-center position-relative" style="height: 100vh;">
    <div id="myCarousel" class="carousel slide w-100 h-100" data-ride="carousel">
       <ol class="carousel-indicators">
          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -38,7 +38,7 @@
       Experience luxury like never before
   </p>
 
-  <a href="#" class="btn btn-dark btn-lg mt-4"
+  <a href="{{ url('our_rooms') }}" class="btn btn-dark btn-lg mt-4"
       style=" font-size: 13px; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);">
       View Rooms >
   </a>

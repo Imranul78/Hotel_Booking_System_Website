@@ -4,7 +4,8 @@
                <div class="col-md-12">
                   <div class="titlepage">
                      <h2>Our Room</h2>
-                     <p>Lorem Ipsum available, but the majority have suffered </p>
+                     <p>Single, Double and Triple Bedrooms are generous in size and appealing to the eye.
+                     The accommodations at Hotel Baraka are sure to please. Our bright, spacious and well-appointed guest rooms offer a variety of floor plans to choose from with two to three single beds or queen beds. </p>
                   </div>
                </div>
             </div>

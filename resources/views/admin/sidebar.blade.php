@@ -1,7 +1,7 @@
 <nav id="sidebar">
         <!-- Sidebar Header-->
         <div class="sidebar-header d-flex align-items-center">
-          <div class="avatar"><img src="" alt="..." class="img-fluid rounded-circle"></div>
+          <div class="avatar"><img src="{{asset('images/logo-.png')}}" alt="..." class="img-fluid rounded-circle"></div>
           <div class="title">
             <a href="{{ url('home') }}"><h1 class="h5">The Grand Haven Resort</h1></a>
            

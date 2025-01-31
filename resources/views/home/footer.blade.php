@@ -13,12 +13,11 @@
                   <div class="col-md-4">
                      <h3>Menu Link</h3>
                      <ul class="link_menu">
-                        <li class="active"><a href="{{url('/')}}">Home</a></li>
-                        <li><a href=""> about</a></li>
-                        <li><a href="">Our Room</a></li>
-                        <li><a href="">Gallery</a></li>
-                        <li><a href="">Blog</a></li>
-                        <li><a href="">Contact Us</a></li>
+                        <li><a href="{{url('/')}}">Home</a></li>
+                        <li><a href="{{ url('our_rooms') }}">Our Room</a></li>
+                        <li><a href="{{ url('hotel_gallary') }}">Gallery</a></li>
+                        <li><a href="{{ url('h_blog') }}">Blog</a></li>
+                        <li><a href="{{ url('contact_us') }}">Contact Us</a></li>
                      </ul>
                   </div>
                   <div class="col-md-4">
