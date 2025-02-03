@@ -82,7 +82,7 @@ route::get('/contact_us',[HomeController::class, 'contact_us']);
 
 route::get('/h_blog',[HomeController::class, 'h_blog']);
 
-
+Route::get('/history', [HomeController::class, 'history'])->middleware('auth');
 
 
 

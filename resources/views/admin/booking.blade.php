@@ -7,7 +7,7 @@
         <table class="table table-bordered table-striped align-middle">
           <thead class="table-dark text-center text-white">
             <tr>
-              
+              <th>Booking ID</th>
               <th>Room No</th>
               <th>Room Title</th>
               <th>Customer Name</th>
@@ -29,15 +29,15 @@
           
              @foreach($data as  $data)
             <tr>
-            
+              <td>{{$data->id}}</td>
               <td>{{$data->room->room_no}}</td>
               <td>{{$data->room->room_title}}</td>
               <td>{{$data->name}}</td>
               <td>{{$data->email}}</td>
               <td>{{$data->phone}}</td>
-              <td>{{$data->created_at}}</td>
-              <td>{{$data->start_date}}</td>
-              <td>{{$data->end_date}}</td>
+              <td>{{$data->created_at->timezone('Asia/Dhaka')->format('d M Y, h:i A')}}</td>
+              <td>{{ \Carbon\Carbon::parse($data->start_date)->timezone('Asia/Dhaka')->format('d M Y') }}</td>
+              <td>{{ \Carbon\Carbon::parse($data->end_date)->timezone('Asia/Dhaka')->format('d M Y') }}</td>
               <td>{{$data->room->price}} BDT</td>
               <td>{{$data->paid_amount}}</td>
               <td>

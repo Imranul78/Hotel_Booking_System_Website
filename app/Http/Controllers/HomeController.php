@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -28,6 +29,8 @@ public function add_booking(Request $request, $id){
       $data = new Booking_room;
 
       $data->room_id = $id;
+
+      $data->user_id = $request->user_id;
 
       $data->name = $request->name;
 
@@ -109,6 +112,11 @@ public function h_blog(){
 
 
 
+
+public function history() {
+    $history = Booking_room::where('user_id', Auth::id())->get(); 
+    return view('home.history', compact('history'));
 }
 
 
+}

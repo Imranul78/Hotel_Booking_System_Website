@@ -70,6 +70,14 @@
                         <form action="{{url('add_booking',$room->id)}}" method="Post" id="bookingForm">
 
                         @csrf
+
+                        <div class="mb-3">
+                              <input type="hidden" id="user_id" name="user_id" class="form-control rounded" placeholder="Enter your name" 
+                              @if (Auth::id())
+                              value="{{Auth::user()->id}}"
+                              @endif>
+                           </div>
+
                            <div class="mb-3">
                               <label for="name" class="form-label">Name</label>
                               <input type="text" id="name" name="name" required class="form-control rounded" placeholder="Enter your name" 

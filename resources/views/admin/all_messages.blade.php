@@ -25,7 +25,7 @@
         <table class="table table-bordered table-striped align-middle">
           <thead class="table-dark text-center text-white">
             <tr>
-              
+              <th>Date and Time</th>
               <th>Name</th>
               <th>Email</th>
               <th>Phone</th>
@@ -37,6 +37,7 @@
           
           @foreach ($data as $data)
             <tr>
+              <td>{{$data->created_at->timezone('Asia/Dhaka')->format('d M Y, h:i A')}}</td>
               <td>{{$data->name}}</td>
               <td>{{$data->email}}</td>
               <td>{{$data->phone}}</td>

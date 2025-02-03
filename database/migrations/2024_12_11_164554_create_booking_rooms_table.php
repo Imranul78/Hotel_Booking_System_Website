@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('booking_rooms', function (Blueprint $table) {
             $table->id();
             $table->string("room_id")->nullable();
+            $table->string("user_id")->nullable();
             $table->string("name")->nullable();
             $table->string("email")->nullable();
             $table->string("phone")->nullable();
             $table->string("start_date")->nullable();
             $table->string("end_date")->nullable();
             $table->string("paid_amount")->nullable();
-
             $table->timestamps();
         });
     }
