@@ -47,11 +47,11 @@
          <h2 class="text-white">Check Room Availability</h2>
          <form action="{{ route('rooms.checkAvailability') }}" method="GET" class="row g-3">
             <div class="col-md-6">
-               <label for="start_date" class="form-label text-white">Start Date</label>
+               <label for="start_date" class="form-label text-white">Check In</label>
                <input type="date" name="start_date" id="start_date" class="form-control" required>
             </div>
             <div class="col-md-6">
-               <label for="end_date" class="form-label text-white">End Date</label>
+               <label for="end_date" class="form-label text-white">Check Out</label>
                <input type="date" name="end_date" id="end_date" class="form-control" required>
             </div>
             <div class="col-12">
