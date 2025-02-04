@@ -33,8 +33,9 @@
               <th>Wifi</th>
               <th>Room Type</th>
               <th>Image</th>
-              <th>Delete</th>
               <th>Update</th>
+              <th>Delete</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -50,12 +51,15 @@
               <td>
                 <img width="60" height="70" src="room/{{$data->image}}" alt="Not Found">
               </td>
-              <td> 
-                <a onclick="return confirm('Are you sure to delete?');" class="btn btn-danger"  href="{{url('room_delete',$data->id)}}">Delete</a>
-              </td>
+
               <td> 
                 <a class="btn btn-warning"  href="{{url('room_update',$data->id)}}">Update</a>
               </td>
+              
+              <td> 
+                <a onclick="return confirm('Are you sure to delete?');" class="btn btn-danger"  href="{{url('room_delete',$data->id)}}">Delete</a>
+              </td>
+              
             </tr>
             @endforeach
           </tbody>

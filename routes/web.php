@@ -84,6 +84,11 @@ route::get('/h_blog',[HomeController::class, 'h_blog']);
 
 Route::get('/history', [HomeController::class, 'history'])->middleware('auth');
 
+Route::get('/check-availability', [HomeController::class, 'checkAvailability'])->name('rooms.checkAvailability');
+
+
+
+
 
 
 

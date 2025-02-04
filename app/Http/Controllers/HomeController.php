@@ -13,6 +13,7 @@ use App\Models\Booking_room;
 use App\Models\Contact;
 
 use App\Models\Gallary;
+use DeepCopy\f008\B;
 
 class HomeController extends Controller
 {
@@ -117,6 +118,35 @@ public function history() {
     $history = Booking_room::where('user_id', Auth::id())->get(); 
     return view('home.history', compact('history'));
 }
+
+
+public function checkAvailability(Request $request)
+{
+    $startDate = $request->input('start_date');
+    $endDate = $request->input('end_date');
+
+    $request->validate([
+        'start_date' => 'required|date|after_or_equal:today',
+        'end_date' => 'required|date|after:start_date',
+    ]);
+
+    // Query rooms that are not booked during the selected dates
+    // and exclude rooms with rejected bookings
+    $availableRooms = Room::whereDoesntHave('bookings', function ($query) use ($startDate, $endDate) {
+        $query->where(function ($query) use ($startDate, $endDate) {
+            $query->whereBetween('start_date', [$startDate, $endDate])
+                  ->orWhereBetween('end_date', [$startDate, $endDate])
+                  ->orWhere(function ($query) use ($startDate, $endDate) {
+                      $query->where('start_date', '<=', $startDate)
+                            ->where('end_date', '>=', $endDate);
+                  });
+        })
+        ->where('status', '!=', 'Rejected'); // Exclude rejected bookings
+    })->get();
+
+    return view('home.available-rooms', compact('availableRooms', 'startDate', 'endDate'));
+}
+
 
 
 }

@@ -3,7 +3,6 @@
    <head>
       <base href="/public">
       @include('home.css')
-
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
    </head>
    <body class="main-layout">
@@ -44,7 +43,6 @@
                         <div class="bed_room">
                            <h3>{{$room->room_title}}</h3>
                            <p>Room No: {{$room->room_no}}</p>
-                           <p>Free Wifi: {{$room->wifi}}</p>
                            <p>Room Type: {{$room->room_type}}</p>
                            <h4 id="price" class="fw-bold fs-4">Price Per Room/Night: <span id="roomPrice">{{$room->price}}</span> BDT</h4>
                            <p class="text-justify">{{$room->description}}</p>
@@ -103,12 +101,12 @@
                            </div>
 
                            <div class="mb-3">
-                              <label for="startDate" class="form-label">Check in</label>
+                              <label for="startDate" class="form-label">Check In</label>
                               <input type="date" id="startDate" name="startDate" required class="form-control rounded">
                            </div>
 
                            <div class="mb-3">
-                              <label for="endDate" class="form-label">Check out</label>
+                              <label for="endDate" class="form-label">Check Out</label>
                               <input type="date" id="endDate" name="endDate" required class="form-control rounded">
                            </div>
 
@@ -140,78 +138,107 @@
       <!--  footer -->
       @include('home.footer')
 
-      <script>
-         document.addEventListener("DOMContentLoaded", () => {
-            const dtToday = new Date();
 
-            let month = dtToday.getMonth() + 1;
-            let day = dtToday.getDate();
-            const year = dtToday.getFullYear();
-
-            if (month < 10) month = `0${month}`;
-            if (day < 10) day = `0${day}`;
-
-            const minDate = `${year}-${month}-${day}`;
-            document.getElementById('startDate').setAttribute('min', minDate);
-            document.getElementById('endDate').setAttribute('min', minDate);
+    <!-- JavaScript Code -->
 
 
 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // Selecting required elements
             const startDateInput = document.getElementById('startDate');
             const endDateInput = document.getElementById('endDate');
             const totalAmountInput = document.getElementById('totalAmount');
-            const roomPrice = parseFloat(document.getElementById('roomPrice').textContent);
+            const roomPrice = parseFloat(document.getElementById('roomPrice').textContent); // Room price value
             const errorMessage = document.getElementById('errorMessage');
             const bookingForm = document.getElementById('bookingForm');
 
+            /**
+             * Function: Set minimum selectable date to today for startDate & endDate
+             */
+            function setMinDate() {
+                const dtToday = new Date();
+                
+                let month = dtToday.getMonth() + 1; // Get current month
+                let day = dtToday.getDate(); // Get current day
+                const year = dtToday.getFullYear(); // Get current year
+
+                // Add leading zero if month/day is single digit
+                if (month < 10) month = `0${month}`;
+                if (day < 10) day = `0${day}`;
+
+                const minDate = `${year}-${month}-${day}`;
+
+                // Set minimum date for startDate and endDate
+                startDateInput.setAttribute('min', minDate);
+                endDateInput.setAttribute('min', minDate);
+            }
+
+            /**
+             * Function: Update the minimum selectable date for endDate
+             * Ensures endDate is always at least one day after startDate
+             */
             function updateEndDateMin() {
                 const startDate = new Date(startDateInput.value);
                 if (!isNaN(startDate)) {
-                    startDate.setDate(startDate.getDate() + 1);
-                    const minEndDate = startDate.toISOString().split('T')[0];
+                    startDate.setDate(startDate.getDate() + 1); // Add 1 day
+                    const minEndDate = startDate.toISOString().split('T')[0]; // Format to YYYY-MM-DD
                     endDateInput.setAttribute('min', minEndDate);
                 }
             }
 
+            /**
+             * Function: Calculate total amount based on selected date range
+             * Formula: total days * room price
+             */
             function calculateTotalAmount() {
                 const startDate = new Date(startDateInput.value);
                 const endDate = new Date(endDateInput.value);
 
                 if (startDate && endDate && startDate < endDate) {
-                    const timeDifference = endDate - startDate;
-                    const totalDays = Math.ceil(timeDifference / (1000 * 60 * 60 * 24)); 
-                    const totalAmount = totalDays * roomPrice;
-                    totalAmountInput.value = totalAmount + ' BDT';
-                    errorMessage.style.display = 'none';
+                    const timeDifference = endDate - startDate; // Difference in milliseconds
+                    const totalDays = Math.ceil(timeDifference / (1000 * 60 * 60 * 24)); // Convert ms to days
+                    const totalAmount = totalDays * roomPrice; // Calculate total price
+                    
+                    totalAmountInput.value = totalAmount + ' BDT'; // Update total amount field
+                    errorMessage.style.display = 'none'; // Hide error message
                 } else {
-                    totalAmountInput.value = '';
-                    errorMessage.style.display = 'block';
+                    totalAmountInput.value = ''; // Clear total amount
+                    errorMessage.style.display = 'block'; // Show error message
                 }
             }
 
+            /**
+             * Function: Validate form before submission
+             * Ensures startDate is earlier than endDate
+             */
             function validateForm(event) {
                 const startDate = new Date(startDateInput.value);
                 const endDate = new Date(endDateInput.value);
 
                 if (startDate >= endDate) {
-                    errorMessage.style.display = 'block';
-                    event.preventDefault(); 
+                    errorMessage.style.display = 'block'; // Show error message
+                    event.preventDefault(); // Prevent form submission
                 }
             }
 
+            // Event Listeners
             startDateInput.addEventListener('change', () => {
-                updateEndDateMin();
-                calculateTotalAmount();
+                updateEndDateMin(); // Update endDate min value when startDate changes
+                calculateTotalAmount(); // Recalculate total amount
             });
 
-            endDateInput.addEventListener('change', calculateTotalAmount);
-            bookingForm.addEventListener('submit', validateForm);
-         });
+            endDateInput.addEventListener('change', calculateTotalAmount); // Recalculate amount on endDate change
+            bookingForm.addEventListener('submit', validateForm); // Validate form before submission
 
-      </script>
+            // Initialize minimum date on page load
+            setMinDate();
+        });
+    </script>
 
-
-
+</body>
+</html>
 
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>

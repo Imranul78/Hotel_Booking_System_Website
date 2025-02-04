@@ -21,7 +21,12 @@ class Booking_room extends Model
 
 
 
-    public function room(){
-        return $this->hasOne('App\Models\Room', 'id', 'room_id');
+    // public function room(){
+    //     return $this->hasOne('App\Models\Room', 'id', 'room_id');
+    // }
+
+    public function room()
+    {
+        return $this->belongsTo(Room::class);
     }
 }

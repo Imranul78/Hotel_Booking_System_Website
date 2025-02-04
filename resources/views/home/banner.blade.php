@@ -1,4 +1,4 @@
-<section class=" banner_main d-flex align-items-center justify-content-center position-relative" style="height: 100vh;">
+<section class="banner_main d-flex align-items-center justify-content-center position-relative" style="height: 100vh;">
    <div id="myCarousel" class="carousel slide w-100 h-100" data-ride="carousel">
       <ol class="carousel-indicators">
          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -26,21 +26,39 @@
       </a>
    </div>
 
-   <!-- Centered Text -->
-
+   <!-- Centered Text and Availability Form -->
    <div class="position-absolute w-100 text-center px-3" style="top: 50%; transform: translateY(-50%);">
-  <h1 class="text-white display-4 font-weight-bold"
-      style="text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); font-family: 'Georgia', serif; letter-spacing: 2px;">
-      Book online to get the best price and best availability offer
-  </h1>
-  <p class="text-white mt-3"
-      style="font-size: 1.25rem; text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);">
-      Experience luxury like never before
-  </p>
+      <h1 class="text-white font-weight-bold responsive-heading"
+         style="text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); font-family: 'Georgia', serif; letter-spacing: 2px; font-size: 32px;">
+         Book online to get the best price and best availability offer
+      </h1>
+      <p class="text-white mt-3"
+         style="font-size: 1.25rem; text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);">
+         Experience luxury like never before
+      </p>
 
-  <a href="{{ url('our_rooms') }}" class="btn btn-dark btn-lg mt-4"
-      style=" font-size: 13px; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);">
-      View Rooms >
-  </a>
-</div>
+      <a href="{{ url('our_rooms') }}" class="btn btn-dark btn-lg mt-4"
+         style="font-size: 13px; text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);">
+         View Rooms >
+      </a>
+
+      <!-- Availability Form -->
+      <div class="container mt-4 px-4 py-3" style="max-width: 600px; background: rgba(0, 0, 0, 0.6); border-radius: 10px;">
+         <h2 class="text-white">Check Room Availability</h2>
+         <form action="{{ route('rooms.checkAvailability') }}" method="GET" class="row g-3">
+            <div class="col-md-6">
+               <label for="start_date" class="form-label text-white">Start Date</label>
+               <input type="date" name="start_date" id="start_date" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+               <label for="end_date" class="form-label text-white">End Date</label>
+               <input type="date" name="end_date" id="end_date" class="form-control" required>
+            </div>
+            <div class="col-12">
+               <button type="submit" class="btn btn-primary w-100 mt-3">Check Availability</button>
+            </div>
+         </form>
+      </div>
+   </div>
 </section>
+
