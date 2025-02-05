@@ -51,28 +51,29 @@
         <div class="alert alert-danger">No rooms available for the selected dates, please try different dates.</div>
         @else
             <div class="row">
-               @foreach ($availableRooms as $room)
-               <div class="col-md-4 col-sm-6">
-                  <div id="serv_hover"  class="room card">
-                     <div class="room_img">
-                        <figure><img style="height:230px; width:400px" src="room/{{$room->image}}" alt="#"/></figure>
-                     </div>
-                     <div class="bed_room">
-                        <h3>{{$room->room_title}}</h3>
-                        <h4>Room No: {{$room->room_no}}</h4>
-                        <h4> Price : {{$room->price}} BDT</h4>
-                        <p class="text-justify">{!! Str::limit($room->description,170) !!}</p>
-                        <a class="btn btn-primary mt-3" href="{{url('room_details',$room->id)}}">More Details</a>
-                     </div>
-                  </div>
-               </div>
-               @endforeach
-            </div>
+              @foreach ($availableRooms as $room)
+                <div class="col-md-4 col-sm-6">
+                   <div id="serv_hover" class="room card d-flex flex-column h-90">
+                      <div class="room_img">
+                         <figure>
+                            <img style="height:230px; width:100%; object-fit: cover;" src="room/{{$room->image}}" alt="#" />
+                         </figure>
+                      </div>
+                      <div class="bed_room flex-grow-1 d-flex flex-column justify-content-between">
+                         <div>
+                            <h3>{{$room->room_title}}</h3>
+                            <h4>Room No: {{$room->room_no}}</h4>
+                            <h4>Price : {{$room->price}} BDT</h4>
+                            <p class="text-justify">{!! Str::limit($room->description, 140) !!}</p>
+                         </div>
+                         <a class="btn btn-primary mt-3" href="{{url('room_details', $room->id)}}">More Details</a>
+                      </div>
+                   </div>
+                </div>
+                @endforeach
+             </div>
             
             @endif
-
-
-
          </div>
       </div>  
       <!--  footer -->

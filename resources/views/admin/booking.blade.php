@@ -14,8 +14,8 @@
               <th>Email</th>
               <th>Phone</th>
               <th>Booking Date and Time</th>
-              <th>Arrival Date</th>
-              <th>Leaving Date</th>
+              <th>Check In</th>
+              <th>Check Out</th>
               <th>Price</th>
               <th>Pay Amount</th>
               <th>Status</th>

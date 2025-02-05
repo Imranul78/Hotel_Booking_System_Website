@@ -11,25 +11,28 @@
             </div>
 
             <div class="row">
-               @foreach ($room as $rooms)
-   
-               <div class="col-md-4 col-sm-6">
-                  <div id="serv_hover"  class="room card">
-                     <div class="room_img">
-                        <figure><img style="height:230px; width:400px" src="room/{{$rooms->image}}" alt="#"/></figure>
-                     </div>
-                     <div class="bed_room">
-                        <h3>{{$rooms->room_title}}</h3>
-                        <h4>Room No: {{$rooms->room_no}}</h4>
-                        <h4> Price : {{$rooms->price}} BDT</h4>
-                        <p class="text-justify">{!! Str::limit($rooms->description,170) !!}</p>
-                        <a class="btn btn-primary mt-3" href="{{url('room_details',$rooms->id)}}">More Details</a>
-                     </div>
-                  </div>
-               </div>
-               @endforeach
-
-            </div>
-            
+                @foreach ($room as $rooms)
+                <div class="col-md-4 col-sm-6">
+                   <div id="serv_hover" class="room card d-flex flex-column h-90">
+                      <div class="room_img">
+                         <figure>
+                            <img style="height:230px; width:100%; object-fit: cover;" src="room/{{$rooms->image}}" alt="#" />
+                         </figure>
+                      </div>
+                      <div class="bed_room flex-grow-1 d-flex flex-column justify-content-between">
+                         <div>
+                            <h3>{{$rooms->room_title}}</h3>
+                            <h4>Room No: {{$rooms->room_no}}</h4>
+                            <h4>Price : {{$rooms->price}} BDT</h4>
+                            <p class="text-justify">{!! Str::limit($rooms->description, 140) !!}</p>
+                         </div>
+                         <a class="btn btn-primary mt-3" href="{{url('room_details', $rooms->id)}}">More Details</a>
+                      </div>
+                   </div>
+                </div>
+                @endforeach
+             </div>
+             
+                         
          </div>
       </div>

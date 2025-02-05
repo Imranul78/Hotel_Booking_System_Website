@@ -23,7 +23,7 @@
       <!-- end header -->
 
      
-      <div class="container mt-4">
+    <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
     <h1 class="h2 fw-bold">Booking History</h1>
     </div>
@@ -63,8 +63,8 @@
                         <th>Room No</th>
                         <th>Room Title</th>
                         <th>Booking Date and Time</th>
-                        <th>Check In Date</th>
-                        <th>Check Out Date</th>
+                        <th>Check In</th>
+                        <th>Check Out</th>
                         <th>Price</th>
                         <th>Pay Amount</th>
                         <th>Status</th>

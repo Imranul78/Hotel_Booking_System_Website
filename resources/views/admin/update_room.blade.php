@@ -62,10 +62,12 @@
           <select name="type" required class="form-select border">
 
            <option selected value="{{$data->room_type}}">{{$data->room_type}}</option>
-
-            <option value="regular">Regular</option>
-            <option value="premium">Premium</option>
-            <option value="deluxe">Deluxe</option>
+           <option value="Deluxe">Deluxe</option>
+            <option value="Executive">Executive</option>
+            <option value="Premium">Premium</option>
+            <option value="Family">Family</option>
+            <option value="Business">Business</option>
+            <option value="Honeymoon">Honeymoon</option>
           </select>
         </div>
 

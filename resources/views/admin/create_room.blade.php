@@ -66,9 +66,12 @@
           <label class="form-label fw-bold">Room Type</label>
           <select name="type" required class="form-select border">
             <option value="" disabled selected>Select Room Type</option>
-            <option value="Regular">Regular</option>
-            <option value="Premium">Premium</option>
             <option value="Deluxe">Deluxe</option>
+            <option value="Executive">Executive</option>
+            <option value="Premium">Premium</option>
+            <option value="Family">Family</option>
+            <option value="Business">Business</option>
+            <option value="Honeymoon">Honeymoon</option>
           </select>
         </div>
 
